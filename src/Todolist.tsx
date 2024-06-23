@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from 'react-bootstrap';
+import TodoModal from "./TodoModal";
 
 // interface말고 type 사용 하는 이유 : 기존의 타입을 사용해서 새로운 타입을 만들때 사용
 // interface : 새로운 객체 구조를 정의할때 (구조를 잡을 떄)
@@ -7,7 +8,7 @@ type Todo = {
     id : number;
     text : string;
     isChecked : boolean;
-}
+};
 
 // React.FC : FC = Function Component 약자
 // probs의 타입을 명시해줌
@@ -105,6 +106,7 @@ const TodoList : React.FC= () => {
                     </ul>
                 </div>
             </div>
+            <TodoModal show={showDetail} todo={selectedTodo} handleClose={handleCloseDetail}></TodoModal>
         </div>
     )
 }
